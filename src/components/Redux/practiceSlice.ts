@@ -1,5 +1,5 @@
 // counterSlice.ts
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
 // Define the initial state for the counter
 interface ComponentInterface {
