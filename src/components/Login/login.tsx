@@ -1,5 +1,5 @@
 import { useState } from "react"
-import "./login.scss"
+import "../global_styles/loginSignUp.scss"
 import { DangerAlert } from "../common_components/alert_component/Alert_Component"
 export const Login = () => {
     const [userCreds, setUserCred] = useState({ name_email: '', password: '' })
@@ -23,11 +23,11 @@ export const Login = () => {
     }
     return (
         <>
-            <div className="contaner login_component position-relative">
+            <div className="contaner loginSignUp_component position-relative">
                 <div className="row">
-                    <div className="col">
                         <div className="d-flex justify-content-center align-items-center full_min_height">
-                            <div className="login_box p-4 rounded text_center ">
+                    <div className="col-5">
+                            <div className="loginSignUp_box p-4 rounded text_center ">
                                 <h3 className="my-2">Welcome Practice</h3>
                                 <h6 className="mb-4 medium_font_size">Please Enter below Details to Experience</h6>
                                 <div>
