@@ -1,5 +1,6 @@
 import { useState } from "react"
 import "../global_styles/loginSignUp.scss"
+import { SwitchLoginSignUpContent } from "../common_components/SwitchLoginSignUp/SwitchLoginSignUp"
 import { DangerAlert } from "../common_components/alert_component/Alert_Component"
 export const Login = () => {
     const [userCreds, setUserCred] = useState({ name_email: '', password: '' })
@@ -50,10 +51,7 @@ export const Login = () => {
                                         <span className="px-2 small_font_size">or</span>
                                         <hr className="w-50" />
                                     </div>
-                                    <div className="create_account x_small_font_size">
-                                        Don't have an account with Practice
-                                        <span className="px-2 submit_color pointer">Create Account</span>
-                                    </div>
+                                   <SwitchLoginSignUpContent/>
                                 </div>
                             </div>
                         </div>
