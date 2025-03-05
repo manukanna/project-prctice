@@ -3,8 +3,12 @@ import "../global_styles/loginSignUp.scss"
 import { DangerAlert } from "../common_components/alert_component/Alert_Component"
 import { SwitchLoginSignUpContent } from "../common_components/SwitchLoginSignUp/SwitchLoginSignUp" 
 import { ValidateInputFields } from "../common_Utilis/validationOfInputFields"
+import { useDispatch } from "react-redux";
+import { swicthLoginSignUpComponent, updateSignUpData } from "../Redux/practiceSlice";
+
 const SignUpPage = () => {
-  const [showErrorMessage, setshowErrorMessage] = useState({ showAlert: false, alertMessage: '' })
+  const dispatch = useDispatch()
+  const [showErrorMessage, setshowErrorMessage] = useState({ showAlert: false, message: '',alertColor:'' })
   const [signUpDetails, setSignUpDetails] = useState({
     firstName: "",
     lastName: "",
@@ -21,12 +25,19 @@ const SignUpPage = () => {
     e.preventDefault();
     const missingInputField = ValidateInputFields(signUpDetails);
     if (missingInputField) {
-      setshowErrorMessage({ showAlert: true, alertMessage: `Please verify the ${missingInputField} field` })
+      setshowErrorMessage({ showAlert: true, message: `Please verify the ${missingInputField} field`, alertColor:"dangerBackground" })
       setTimeout(() => {
-        setshowErrorMessage({ showAlert: false, alertMessage: '' });
+        setshowErrorMessage({ showAlert: false, message: '',alertColor:'' });
       }, 2000);
     } else {
       // setCreateAccount(true);
+      setshowErrorMessage({ showAlert: true, message: `your account has been created successfully` , alertColor:"successBackground"})
+      setTimeout(() => {
+        setshowErrorMessage({ showAlert: false, message: '',alertColor:'' });
+        dispatch(updateSignUpData(signUpDetails));
+          dispatch(swicthLoginSignUpComponent(false));
+      }, 2000);
+          
       setSignUpDetails({
         firstName: "",
         lastName: "",
@@ -128,7 +139,7 @@ const SignUpPage = () => {
         </div>
       </div>
 
-      {showErrorMessage.showAlert && <DangerAlert alertMessage={showErrorMessage.alertMessage} />}
+      {showErrorMessage.showAlert && <DangerAlert alertMessage={showErrorMessage} />}
     </>
   );
 };

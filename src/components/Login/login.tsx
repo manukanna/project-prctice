@@ -2,7 +2,11 @@ import { useState } from "react"
 import "../global_styles/loginSignUp.scss"
 import { SwitchLoginSignUpContent } from "../common_components/SwitchLoginSignUp/SwitchLoginSignUp"
 import { DangerAlert } from "../common_components/alert_component/Alert_Component"
+import { useDispatch, useSelector } from "react-redux"
+import { updateLoginDetails } from "../Redux/practiceSlice"
 export const Login = () => {
+    const dispatch = useDispatch()
+    const loginDetails=useSelector((state: any) => state.updateLoginDetails)    
     const [userCreds, setUserCred] = useState({ name_email: '', password: '' })
     const [alertError, setalertError] = useState({ showAlert: false, alertMessage: '' });
     const [showHidePassword, setshowHidePassword] = useState(false);
@@ -19,6 +23,7 @@ export const Login = () => {
                 setalertError({ showAlert: false, alertMessage: '' });
             }, 2000);
         } else {
+            dispatch(updateLoginDetails(userCreds));
             console.log(userCreds)
         }
     }
