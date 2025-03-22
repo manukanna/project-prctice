@@ -28,7 +28,15 @@ $submitButton: #2d4f73;
           font-size: 18px;
         }
       }
+      .password_icons_signUp{
+        top: 30%;
+        right: 18px;
+        .icon_modify {
+          font-size: 18px;
+        }
+      }
     }
+
     .forgot_password {
       font-size: 13px;
       color: $color_blue;
@@ -37,5 +45,9 @@ $submitButton: #2d4f73;
 		background-color: $submitButton;
 		border-color: $submitButton;
 	}
+  }
+  .validate_password{
+    color: red;
+    font-size: 10px;
   }
 }

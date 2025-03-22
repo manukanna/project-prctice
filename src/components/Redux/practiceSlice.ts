@@ -43,7 +43,7 @@ const componentSlice = createSlice({
   reducers: {
     // Increment action
     swicthLoginSignUpComponent: (state, action) => {
-      state.switchLoginSignUp = action.payload;
+      state.switchLoginSignUp = !action.payload;
     },
     updateSignUpData: (state, action) => {
       state.signUpDetails = action.payload
