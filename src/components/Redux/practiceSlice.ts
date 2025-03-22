@@ -11,13 +11,9 @@ interface ComponentInterface {
     email: string,
     catogery: string,
   };
-  loginDetails:{
-    name_email: string, 
-    password: string,
-  }
+  
 
 }
-
 const initialState: ComponentInterface = {
     switchLoginSignUp: true,
     signUpDetails:{
@@ -28,12 +24,6 @@ const initialState: ComponentInterface = {
       email: "",
       catogery: "",
     },
-    loginDetails:{
-      name_email: '', 
-      password: ''
-    }
-
-
 };
 
 // Create a slice
@@ -48,15 +38,12 @@ const componentSlice = createSlice({
     updateSignUpData: (state, action) => {
       state.signUpDetails = action.payload
     },
-    updateLoginDetails:(state,action)=>{
-      state.loginDetails = action.payload
-    },
   },
 });
 
 
 // Export the increment action
-export const { swicthLoginSignUpComponent, updateSignUpData, updateLoginDetails} = componentSlice.actions;
+export const { swicthLoginSignUpComponent, updateSignUpData} = componentSlice.actions;
 
 // Export the reducer
 export default componentSlice.reducer;
