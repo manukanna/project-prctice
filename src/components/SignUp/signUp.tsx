@@ -35,7 +35,7 @@ const SignUpPage = () => {
       setTimeout(() => {
         setshowErrorMessage({ showAlert: false, message: '',alertColor:'' });
         dispatch(updateSignUpData(signUpDetails));
-          dispatch(swicthLoginSignUpComponent(false));
+        dispatch(swicthLoginSignUpComponent(true));
       }, 2000);
           
       setSignUpDetails({
